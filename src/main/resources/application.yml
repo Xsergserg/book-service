@@ -4,6 +4,15 @@ server:
     context-path: /dot-interview
   shutdown: graceful
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+  endpoint:
+    health:
+      show-details: always
+
 spring:
   h2:
     console:
