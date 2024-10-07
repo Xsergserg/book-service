@@ -12,5 +12,12 @@ import javax.validation.constraints.NotNull
 @Entity
 class Book(
     @NotBlank @Length(max = 128) @Column(nullable = false, length = 128) val name: String,
-    @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER) @NotNull val sentences: List<Sentence>
-) : EntityBase()
+    @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER) @NotNull val sentences: List<Sentence>,
+) : EntityBase() {
+    companion object {
+        fun create(
+            name: String,
+            sentences: List<Sentence> = emptyList(),
+        ): Book = Book(name, sentences)
+    }
+}
