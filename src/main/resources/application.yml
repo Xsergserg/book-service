@@ -1,7 +1,7 @@
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
   servlet:
-    context-path: /dot-interview
+    context-path: ${CONTEXT_PATH:/dot-interview}
   shutdown: graceful
 
 management:
@@ -19,8 +19,8 @@ spring:
       enabled: true
   datasource:
     url: jdbc:h2:mem:innodb
-    username: inno
-    password: innopass
+    username: ${DB_USERNAME:inno}
+    password: ${DB_PASSWORD:innopass}
     driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
