@@ -29,3 +29,9 @@ spring:
     open-in-view: false
   jackson:
     default-property-inclusion: non_null
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
