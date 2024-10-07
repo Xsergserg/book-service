@@ -7,8 +7,7 @@ import javax.persistence.MappedSuperclass
 import javax.validation.constraints.NotNull
 
 @MappedSuperclass
-internal abstract class EntityBase {
-
+abstract class EntityBase {
     @Id
     val id: String = UUID.randomUUID().toString()
 
