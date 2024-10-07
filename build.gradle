@@ -2,13 +2,22 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'org.jetbrains.kotlin.jvm' version '1.6.21'
     id 'org.jetbrains.kotlin.plugin.jpa' version '1.6.21'
-    id "org.jetbrains.kotlin.plugin.spring" version "1.6.21"
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.6.21'
 }
 
 group = "com.innovatrics.dot"
 version = "0.0.1-SNAPSHOT"
 
 var springBootVersion = "2.6.7"
+var logbackVersion = "1.2.13"
+var jacksonVersion = "2.16.2"
+var prometheusVersion = "1.13.5"
+var openapiVersion = "1.8.0"
+var slf4jVersion = "2.0.16"
+var h2Version = "1.4.200"
+var kotestVersion = "5.5.5"
+var mockkVersion = "1.12.0"
+var mockitoKotlinTest = "5.1.0"
 
 java.sourceCompatibility = JavaVersion.VERSION_11
 java.targetCompatibility = JavaVersion.VERSION_11
@@ -28,13 +37,24 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"
     implementation "org.springframework.boot:spring-boot-starter-validation"
     implementation "org.springframework.boot:spring-boot-starter-hateoas"
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.boot:spring-boot-starter-cache"
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
+    implementation "io.micrometer:micrometer-registry-prometheus:$prometheusVersion"
     implementation "org.jetbrains.kotlin:kotlin-reflect"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.springdoc:springdoc-openapi-ui:$openapiVersion"
+    implementation "org.springdoc:springdoc-openapi-kotlin:$openapiVersion"
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
 
-    runtimeOnly "com.h2database:h2"
+    runtimeOnly "com.h2database:h2:$h2Version"
 
+    testImplementation "io.kotest:kotest-assertions-core:$kotestVersion"
+    testImplementation "io.kotest:kotest-runner-junit5:$kotestVersion"
+    testImplementation "io.mockk:mockk:$mockkVersion"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinTest"
 }
 
 compileKotlin {
