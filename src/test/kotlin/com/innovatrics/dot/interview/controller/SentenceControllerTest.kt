@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.innovatrics.dot.interview.dto.SentenceRequestDto
 import com.innovatrics.dot.interview.dto.SentenceResponseDto
-import com.innovatrics.dot.interview.helper.clearAll
 import com.innovatrics.dot.interview.persistence.entity.Book
 import com.innovatrics.dot.interview.persistence.entity.Sentence
 import com.innovatrics.dot.interview.persistence.repository.BookRepository
@@ -19,7 +18,6 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.cache.CacheManager
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -41,14 +39,10 @@ class SentenceControllerTest {
     @Autowired
     lateinit var objectMapper: ObjectMapper
 
-    @Autowired
-    lateinit var cacheManager: CacheManager
-
     @AfterEach
     fun tearDown() {
         sentenceRepository.deleteAll()
         bookRepository.deleteAll()
-        cacheManager.clearAll()
     }
 
     @Nested
