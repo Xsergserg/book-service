@@ -11,4 +11,5 @@ COPY --from=build /app/build/libs/*.jar app.jar
 #ENV CONTEXT_PATH=/dot-interview
 #ENV DB_USERNAME=inno
 #ENV DB_PASSWORD=innopass
+#ENV LOGGING_LEVEL = DEBUG
 CMD ["java", "-jar", "app.jar"]

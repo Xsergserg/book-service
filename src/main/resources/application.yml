@@ -4,6 +4,14 @@ server:
     context-path: ${CONTEXT_PATH:/dot-interview}
   shutdown: graceful
 
+logging:
+  level:
+    root: ${LOGGING_LEVEL:INFO}
+  file:
+    path: logs/
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
 management:
   endpoints:
     web:
