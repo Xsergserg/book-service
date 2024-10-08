@@ -28,7 +28,7 @@ spring:
       settings:
         web-allow-others: true
   datasource:
-    url: jdbc:h2:mem:innodb
+    url: ${DB_URL:jdbc:h2:mem:innodb}
     username: ${DB_USERNAME:inno}
     password: ${DB_PASSWORD:innopass}
     driverClassName: org.h2.Driver

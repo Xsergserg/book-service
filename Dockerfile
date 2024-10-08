@@ -9,6 +9,7 @@ WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 #ENV SERVER_PORT=8090
 #ENV CONTEXT_PATH=/dot-interview
+#ENV DB_URL=jdbc:h2:mem:innodb
 #ENV DB_USERNAME=inno
 #ENV DB_PASSWORD=innopass
 #ENV LOGGING_LEVEL = DEBUG
