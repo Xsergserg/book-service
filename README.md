@@ -3,6 +3,7 @@
 ## Description
 
 _The project is a task according to [assignment](./assignment/README.md)._
+
 RESTful API that provides the following operations:
 
 - Get a word count of a sentence by its ID
